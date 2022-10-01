@@ -1,6 +1,6 @@
 ## Introduction
 
-Setting up nginx as reverse proxy that forward traffic to apache web server to serve PHP and nodejs application using different port. Self reference only easy for me to refer next time when needed.
+Setting up nginx as reverse proxy that forward traffic to apache web server to serve PHP and nodejs application using different port. 
 
 ## Requirements
 - nginx
