@@ -363,7 +363,7 @@ The mysql/mariadb configuration files in Debian are located in the /etc/mysql/ d
 service mariadb restart
 ```
 
-Installing phpmyadmin
+## Installing phpmyadmin
 In order to install phpmyadmin on our web server, it is enough to simply unpack the panel sources into a directory with a virtual host. Creating a folder structure.
 ```
 mkdir /var/www/php-simple-app/pma
@@ -381,7 +381,8 @@ cp -R phpMyAdmin-5.2.0-all-languages/* /var/www/php-simple-app/pma/
 chown -R root. /var/www/php-simple-app/pma/
 ```
 
-Setting up phpmyadmin
+##Setting up phpmyadmin
+
 Phpmyadmin is ready to work immediately after installation, additional settings are not required. We close access to the panel by means of the Web server. To use the panel, you will need not only to know the mysql account name, but also the user and password to access the panel directly.
 
 We will use a standard tool to restrict access to the directory using .htaccess. Let's create such a file in the folder with phpmyadmin scripts:
