@@ -157,7 +157,7 @@ Create simple nodejs application which run on `port :3000`
 ```
 mkdir /var/www/node-simple-app
 cd /var/www/node-simple-app
-vim app.js
+nano app.js
 ```
 
 Put following code
@@ -187,7 +187,7 @@ Create simple nodejs application which run on `port :8080`
 ```
 mkdir /var/www/php-simple-app
 cd /var/www/php-simple-app
-vim index.php
+nano index.php
 ```
 
 Put following code
@@ -206,7 +206,7 @@ sudo a2dissite 000-default.conf
 Create new vhost
 ```
 sudo cp 000-default.conf php-simple-app.conf
-vim php-simple-app.conf
+nano php-simple-app.conf
 ```
 
 Put following code 
@@ -235,7 +235,7 @@ sudo systemctl reload apache2
 ### Reverse Proxy from nginx to PHP site
 Pass traffic from `port :80` nginx into `port :8080` of PHP app. Create nginx server block
 ```
-vim /etc/nginx/sites-available/php-simple-app.conf
+nano /etc/nginx/sites-available/php-simple-app.conf
 ```
 
 Put following basic content
@@ -253,6 +253,7 @@ server {
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto https;
                 proxy_http_version 1.1;
                 proxy_set_header Connection "";
                 proxy_buffering off;
@@ -266,7 +267,7 @@ server {
 ### Reverse Proxy from nginx to Node site
 Pass traffic from `port :80` nginx into `port :3000` of nodejs. Create nginx server block
 ```
-vim /etc/nginx/sites-available/node-simple-app.conf
+nano /etc/nginx/sites-available/node-simple-app.conf
 ```
 
 Put following basic content
@@ -365,7 +366,7 @@ service mariadb restart
 Installing phpmyadmin
 In order to install phpmyadmin on our web server, it is enough to simply unpack the panel sources into a directory with a virtual host. Creating a folder structure.
 ```
-mkdir mkdir /var/www/php-simple-app/pma
+mkdir /var/www/php-simple-app/pma
 ```
 Go to the website https://www.phpmyadmin.net and copy the link to the latest version of the panel. Then we load it through the console
 ```
@@ -426,5 +427,18 @@ Done
 When navigate to `https://php-test.example.com`, nginx will redirect traffic to `https://<localhost|server-ip>:8080` which serve the PHP site.
 
 When navigate to `https://php-test.example.com/pma`, phpmyadmin should open.
+
+If you get error #1698 - Access denied for user ‘root’@’localhost’, then use this:
+
+```
+sudo mysql
+```
+
+```
+use mysql;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'PASSWORD';
+exit
+```
+Where is "PASSWORD", the password to log in to phpmyadmin
 
 When navigate to `https://node-test.example.com`, nginx will redirect traffic to `https://<localhost|server-ip>:3000` which serve the Node JS site.
