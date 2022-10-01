@@ -427,6 +427,8 @@ Done
 ## Test
 When navigate to `https://php-test.example.com`, nginx will redirect traffic to `https://<localhost|server-ip>:8080` which serve the PHP site.
 
+![PHP](images/php.png)
+
 When navigate to `https://php-test.example.com/pma`, phpmyadmin should open.
 
 If you get error #1698 - Access denied for user ‘root’@’localhost’, then use this:
