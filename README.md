@@ -381,7 +381,7 @@ cp -R phpMyAdmin-5.2.0-all-languages/* /var/www/php-simple-app/pma/
 chown -R root. /var/www/php-simple-app/pma/
 ```
 
-##Setting up phpmyadmin
+## Setting up phpmyadmin
 
 Phpmyadmin is ready to work immediately after installation, additional settings are not required. We close access to the panel by means of the Web server. To use the panel, you will need not only to know the mysql account name, but also the user and password to access the panel directly.
 
