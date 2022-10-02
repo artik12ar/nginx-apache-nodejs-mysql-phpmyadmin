@@ -29,7 +29,7 @@ Change default port from `80` to `8080`
 ```
 sudo nano /etc/apache2/ports.conf
 
-# change Listen 80 into Listen 8080. Save and close vim editor
+# change Listen 80 into Listen 8080. Save and close nano editor
 ```
 
 Restart apache2
