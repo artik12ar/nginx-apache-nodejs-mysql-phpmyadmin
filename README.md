@@ -27,7 +27,7 @@ sudo apt install apache2
 
 Change default port from `80` to `8080`
 ```
-sudo vim /etc/apache2/ports.conf
+sudo nano /etc/apache2/ports.conf
 
 # change Listen 80 into Listen 8080. Save and close vim editor
 ```
