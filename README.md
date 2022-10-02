@@ -83,7 +83,7 @@ sudo apt-get install php7.4-mysql php7.4-curl php7.4-zip php7.4-json php7.4-cgi 
 
 Change common config
 ```
-sudo vim /etc/php/7.4/apache2/php.ini
+sudo nano /etc/php/7.4/apache2/php.ini
 
 ## Find this setting and change to
 file_uploads = On
